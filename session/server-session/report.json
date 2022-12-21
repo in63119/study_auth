@@ -1,0 +1,80 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 2,
+    "passes": 0,
+    "pending": 0,
+    "failures": 3,
+    "start": "2022-04-17T23:38:59.942Z",
+    "end": "2022-04-17T23:39:00.028Z",
+    "duration": 86
+  },
+  "tests": [
+    {
+      "title": "인증서 파일이 존재해야 합니다",
+      "fullTitle": "파일 및 환경 변수 테스트 인증서 파일이 존재해야 합니다",
+      "duration": 2,
+      "currentRetry": 0,
+      "err": {
+        "message": "expected false to be true",
+        "showDiff": true,
+        "actual": "false",
+        "expected": "true",
+        "operator": "strictEqual",
+        "stack": "AssertionError: expected false to be true\n    at Context.<anonymous> (__tests__/server.test.js:6:45)\n    at processImmediate (internal/timers.js:464:21)"
+      }
+    },
+    {
+      "title": "환경 변수에 데이터베이스 비밀번호가 존재해야 합니다",
+      "fullTitle": "파일 및 환경 변수 테스트 환경 변수에 데이터베이스 비밀번호가 존재해야 합니다",
+      "duration": 0,
+      "currentRetry": 0,
+      "err": {
+        "message": "expected undefined to exist",
+        "showDiff": false,
+        "operator": "strictEqual",
+        "stack": "AssertionError: expected undefined to exist\n    at Context.<anonymous> (__tests__/server.test.js:11:45)\n    at processImmediate (internal/timers.js:464:21)"
+      }
+    }
+  ],
+  "pending": [],
+  "failures": [
+    {
+      "title": "인증서 파일이 존재해야 합니다",
+      "fullTitle": "파일 및 환경 변수 테스트 인증서 파일이 존재해야 합니다",
+      "duration": 2,
+      "currentRetry": 0,
+      "err": {
+        "message": "expected false to be true",
+        "showDiff": true,
+        "actual": "false",
+        "expected": "true",
+        "operator": "strictEqual",
+        "stack": "AssertionError: expected false to be true\n    at Context.<anonymous> (__tests__/server.test.js:6:45)\n    at processImmediate (internal/timers.js:464:21)"
+      }
+    },
+    {
+      "title": "환경 변수에 데이터베이스 비밀번호가 존재해야 합니다",
+      "fullTitle": "파일 및 환경 변수 테스트 환경 변수에 데이터베이스 비밀번호가 존재해야 합니다",
+      "duration": 0,
+      "currentRetry": 0,
+      "err": {
+        "message": "expected undefined to exist",
+        "showDiff": false,
+        "operator": "strictEqual",
+        "stack": "AssertionError: expected undefined to exist\n    at Context.<anonymous> (__tests__/server.test.js:11:45)\n    at processImmediate (internal/timers.js:464:21)"
+      }
+    },
+    {
+      "title": "\"before all\" hook in \"Authentication - Server\"",
+      "fullTitle": "Authentication - Server \"before all\" hook in \"Authentication - Server\"",
+      "duration": 79,
+      "currentRetry": 0,
+      "err": {
+        "stack": "Error: the string \"connect ECONNREFUSED 127.0.0.1:3306\" was thrown, throw an Error :)\n    at processTicksAndRejections (internal/process/task_queues.js:95:5)",
+        "message": "the string \"connect ECONNREFUSED 127.0.0.1:3306\" was thrown, throw an Error :)"
+      }
+    }
+  ],
+  "passes": []
+}

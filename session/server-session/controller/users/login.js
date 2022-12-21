@@ -9,10 +9,6 @@ module.exports = {
       where: { userId: req.body.userId, password: req.body.password },
     });
 
-    // let result = userInfo.dataValues;
-    // console.log(userInfo.dataValues.userId);
-    // console.log(req.session.userId);
-
     // TODO: userInfo 결과 존재 여부에 따라 응답을 구현하세요.
     // 결과가 존재하는 경우 세션 객체에 userId가 저장되어야 합니다.
     if (!userInfo) {
@@ -26,25 +22,3 @@ module.exports = {
     }
   },
 };
-
-// const { Users } = require("../../models");
-
-// module.exports = {
-//   post: async (req, res) => {
-//     const userInfo = await Users.findOne({
-//       where: { userId: req.body.userId, password: req.body.password },
-//     });
-
-//     // TODO: userInfo 결과 존재 여부에 따라 응답을 구현하세요.
-//     // 결과가 존재하는 경우 세션 객체에 userId가 저장되어야 합니다.
-//     if (!userInfo) {
-//       // your code here
-//       res.status(400).send({ message: "not authorized" });
-//     } else {
-//       // your code here
-//       // HINT: req.session을 사용하세요.
-//       req.session.userId = userInfo.userId;
-//       res.status(200).send({ message: "ok" });
-//     }
-//   },
-// };

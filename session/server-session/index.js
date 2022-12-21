@@ -19,7 +19,7 @@ app.use(
     resave: false,
     saveUninitialized: true,
     cookie: {
-      domain: "https://localhost",
+      domain: "localhost",
       path: "/",
       maxAge: 24 * 6 * 60 * 10000,
       sameSite: "None",

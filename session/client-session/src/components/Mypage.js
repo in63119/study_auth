@@ -1,11 +1,14 @@
 import React from "react";
+const axios = require("axios");
 
-const FILL_ME_IN = "FILL_ME_IN";
+const FILL_ME_IN = "test";
 
 function Mypage(props) {
-  console.log(props);
   const handleLogout = () => {
     // TODO: 서버에 로그아웃 요청을 보낸다음 요청이 성공하면 props.logoutHandler를 호출하여 로그인 상태를 업데이트 해야 합니다.
+    axios.post("https://localhost:4000/users/logout").then(() => {
+      props.logoutHandler();
+    });
   };
   return props.userData == null ? (
     <div>Loading...</div>

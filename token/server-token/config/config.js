@@ -1,8 +1,6 @@
 const dotenv = require("dotenv");
 dotenv.config();
 
-const accessSecret = process.env.ACCESS_SECRET;
-
 module.exports = {
   development: {
     username: "root",
@@ -25,5 +23,4 @@ module.exports = {
     host: "127.0.0.1",
     dialect: "mysql",
   },
-  accessSecret,
 };

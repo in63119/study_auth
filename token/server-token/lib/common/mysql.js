@@ -18,7 +18,7 @@ module.exports = class DatabaseConnector extends SingletonBase {
   constructor() {
     super();
     this.config = {
-      host: "localhost",
+      host: "127.0.0.1",
       user: process.env.DATABASE_USERNAME || "root",
       password: process.env.DATABASE_PASSWORD || "",
       database: process.env.DATABASE_NAME || "authentication",
@@ -37,6 +37,7 @@ module.exports = class DatabaseConnector extends SingletonBase {
       this.connection.connect((err) => {
         if (err) {
           reject(err.message);
+          // console.log(err);
         }
         resolve("ok");
       });

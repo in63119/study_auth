@@ -22,6 +22,7 @@ class App extends Component {
     // access token을 받아온 후
     //  - 로그인 상태를 true로 변경하고,
     //  - state에 access token을 저장하세요
+    console.log(authorizationCode);
   }
 
   componentDidMount() {

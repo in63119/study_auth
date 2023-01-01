@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import axios from 'axios';
-const FILL_ME_IN = 'FILL_ME_IN'
+import axios from "axios";
+const FILL_ME_IN = "FILL_ME_IN";
 
 class Mypage extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -11,9 +10,8 @@ class Mypage extends Component {
 
       // TODO: GitHub API 를 통해서 받아올 수 있는 정보들 중에서
       // 이름, login 아이디, repository 주소, public repositoty 개수를 포함한 다양한 정보들을 담아주세요.
-    }
+    };
   }
-
   async getGitHubUserInfo() {
     // TODO: GitHub API를 통해 사용자 정보를 받아오세요.
     // https://docs.github.com/en/free-pro-team@latest/rest/reference/users#get-the-authenticated-user
@@ -25,24 +23,30 @@ class Mypage extends Component {
   }
 
   componentDidMount() {
-    this.getGitHubUserInfo()
-    this.getImages()
+    this.getGitHubUserInfo();
+    this.getImages();
   }
 
   render() {
-    const { accessToken } = this.props
+    const { accessToken } = this.props;
 
     if (!accessToken) {
-      return <div>로그인이 필요합니다</div>
+      return <div>로그인이 필요합니다</div>;
     }
 
     return (
       <div>
-        <div className='mypageContainer'>
+        <div className="mypageContainer">
           <h3>Mypage</h3>
           <hr />
 
-          <div>안녕하세요. <span className="name" id="name">{FILL_ME_IN}</span>님! GitHub 로그인이 완료되었습니다.</div>
+          <div>
+            안녕하세요.{" "}
+            <span className="name" id="name">
+              {FILL_ME_IN}
+            </span>
+            님! GitHub 로그인이 완료되었습니다.
+          </div>
           <div>
             <div className="item">
               나의 로그인 아이디:
@@ -62,10 +66,9 @@ class Mypage extends Component {
             {/* TODO: 여기에 img 태그를 이용해 resource server로 부터 받은 이미지를 출력하세요 */}
           </div>
         </div>
-      </div >
+      </div>
     );
   }
-
 }
 
 export default Mypage;

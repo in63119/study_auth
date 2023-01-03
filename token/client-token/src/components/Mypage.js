@@ -25,7 +25,18 @@ class Mypage extends Component {
     ** 주의사항 **
     App 컴포넌트에서 내려받은 accessToken props를 authorization header에 담아 요청을 보내야 합니다. 
     */
-   
+    axios
+      .get("https://localhost:4000/accesstokenrequest", {
+        headers: { authorization: `Bearer ${this.props.accessToken}` },
+      })
+      .then((res) => {
+        // console.log('리스폰 : ' + res.data.data.userInfo);
+        this.setState({
+          userId: res.data.data.userInfo.userId,
+          email: res.data.data.userInfo.email,
+          createdAt: res.data.data.userInfo.createdAt,
+        });
+      });
   }
 
   refreshTokenRequest() {
@@ -35,36 +46,44 @@ class Mypage extends Component {
     1. Mypage 컴포넌트의 state(userId, email, createdAt)를 변경
     2. 상위 컴포넌트 App의 state에 accessToken을 받은 새 토큰으로 교환
     */
-   
+    axios.get("https://localhost:4000/refreshtokenrequest").then((res) => {
+      // console.log('자 한번보자! ' + res);
+      this.setState({
+        userId: res.data.data.userInfo.userId,
+        email: res.data.data.userInfo.email,
+        createdAt: res.data.data.userInfo.createdAt,
+      });
+      this.props.issueAccessToken(res.data.data.accessToken);
+    });
   }
 
   render() {
     const { userId, email, createdAt } = this.state;
     return (
-      <div className='mypageContainer'>
-        <div className='title'>Mypage</div>
+      <div className="mypageContainer">
+        <div className="title">Mypage</div>
         <hr />
         <br />
         <br />
         <div>
-          안녕하세요. <span className='name'>{userId ? userId : "Guest"}</span>님! jwt 로그인이
-          완료되었습니다.
+          안녕하세요. <span className="name">{userId ? userId : "Guest"}</span>
+          님! jwt 로그인이 완료되었습니다.
         </div>
         <br />
         <br />
-        <div className='item'>
-          <span className='item'>나의 이메일: </span> {email}
+        <div className="item">
+          <span className="item">나의 이메일: </span> {email}
         </div>
-        <div className='item'>
-          <span className='item'>나의 아이디 생성일: </span> {createdAt}
+        <div className="item">
+          <span className="item">나의 아이디 생성일: </span> {createdAt}
         </div>
         <br />
         <br />
-        <div className='btnContainer'>
-          <button className='tokenBtn red' onClick={this.accessTokenRequest}>
+        <div className="btnContainer">
+          <button className="tokenBtn red" onClick={this.accessTokenRequest}>
             access token request
           </button>
-          <button className='tokenBtn navy' onClick={this.refreshTokenRequest}>
+          <button className="tokenBtn navy" onClick={this.refreshTokenRequest}>
             refresh token request
           </button>
         </div>

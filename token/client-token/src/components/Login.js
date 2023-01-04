@@ -25,32 +25,41 @@ class Login extends Component {
     로그인 요청 후 App:
     state = { isLogin: true, accessToken: 서버에_요청하여_받은_access_token }
     */
-   
+    axios
+      .post("https://localhost:4000/login", {
+        userId: this.state.userId,
+        password: this.state.password,
+      })
+      .then((res) => {
+        // console.log(res);
+        this.props.issueAccessToken(res.data.data.accessToken);
+        this.props.loginHandler(true);
+      });
   }
 
   render() {
     return (
-      <div className='loginContainer'>
-        <div className='inputField'>
+      <div className="loginContainer">
+        <div className="inputField">
           <div>Username</div>
           <input
-            name='userId'
+            name="userId"
             onChange={(e) => this.inputHandler(e)}
             value={this.state.userId}
-            type='text'
+            type="text"
           />
         </div>
-        <div className='inputField'>
+        <div className="inputField">
           <div>Password</div>
           <input
-            name='password'
+            name="password"
             onChange={(e) => this.inputHandler(e)}
             value={this.state.password}
-            type='password'
+            type="password"
           />
         </div>
-        <div className='loginBtnContainer'>
-          <button onClick={this.loginRequestHandler} className='loginBtn'>
+        <div className="loginBtnContainer">
+          <button onClick={this.loginRequestHandler} className="loginBtn">
             JWT Login
           </button>
         </div>

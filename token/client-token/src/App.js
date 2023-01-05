@@ -15,9 +15,15 @@ class App extends Component {
     this.issueAccessToken = this.issueAccessToken.bind(this);
   }
 
-  loginHandler(data) {}
+  loginHandler(data) {
+    this.setState({
+      isLogin: data,
+    });
+  }
 
-  issueAccessToken(token) {}
+  issueAccessToken(token) {
+    this.setState({ accessToken: token });
+  }
 
   render() {
     const { isLogin } = this.state;
